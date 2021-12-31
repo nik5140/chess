@@ -36,7 +36,7 @@ int main()
     int firstflag=0, secondflag=0;
     int rightannotationflag=0;
 
-    // флаги аттаки - 0 не атакует, 1 атакует по линии букв, атакует по линии цифр
+    // attack flags. 0 - figure doesn't attack the king, 1 - castle attacks king by letters row, 2 - figure castle attacks king by digits line
     int first_ladya_attack_flag=0;
     int second_ladya_attack_flag=0;
     int third_ladya_attack_flag=0;
@@ -44,7 +44,7 @@ int main()
     while(rightannotationflag!=1)
  {
 
-    printf("Укажите позицию короля используя стандартную запись, например e2\n");
+    printf("Enter kings position using standart e2 chess notations\n");
     scanf("%s", pos_king);
 
      flagfunction(pos_king,&firstflag, &secondflag, letter, digit);
@@ -52,7 +52,7 @@ int main()
     if ((firstflag==1)&&(secondflag==1)&&(pos_king[2]=='\0'))
     {
         rightannotationflag=1;
-        printf("ввод корректен, продолжаем\n");
+        printf("input is accepted, go on\n");
         printf("Third symbol is %c\n", pos_king[2]);
         firstflag = 0;
         secondflag = 0;
@@ -66,22 +66,22 @@ int main()
      while(rightannotationflag!=1)
  {
 
-    printf("Укажите позицию первой ладьи, используя стандартную запись, например e2\n");
+    printf("Enter position of first white castle using standart chess e2 notation\n");
     scanf("%s", pos_ladya1);
 
 
     flagfunction(pos_ladya1,&firstflag, &secondflag, letter, digit);
 
     if ((firstflag==1)&&(secondflag==1)&&(pos_ladya1[2]=='\0'))
-    {printf("Позиция первой ладьи: %s\n", pos_ladya1);
+    {printf("Position of first castle: %s\n", pos_ladya1);
         if((pos_king[0]==pos_ladya1[0])&&(pos_king[1]==pos_ladya1[1]))
         {
-            printf("На одной и той же клетке не может стоять две фигуры\n");
+            printf("Its imposible for two figures to stand in one cell\n");
             continue;
         }
         else{
             rightannotationflag=1;
-            printf("ввод корректен, продолжаем\n");
+            printf("input is correct, go on\n");
             printf("Third symbol is %c\n", pos_ladya1[2]);
             firstflag = 0;
             secondflag = 0;
@@ -96,7 +96,7 @@ int main()
      while(rightannotationflag!=1)
  {
 
-    printf("Укажите позицию второй ладьи, используя стандартную запись, например e2\n");
+    printf("Enter position of second white castle using standart chess e2 notation\n");
     scanf("%s", pos_ladya2);
 
     flagfunction(pos_ladya2,&firstflag, &secondflag, letter, digit);
@@ -105,16 +105,16 @@ int main()
     {
         if(((pos_king[0]==pos_ladya2[0])&&(pos_king[1]==pos_ladya2[1]))||(((pos_ladya1[0])==pos_ladya2[0])&&(pos_ladya1[1]==pos_ladya2[1])))
         {
-            printf("На одной и той же клетке не может стоять две фигуры\n");
+            printf("Its imposible for two figures to stand in one cell\n");
             continue;
         }
         else{
             rightannotationflag=1;
-            printf("ввод корректен, продолжаем\n");
+            printf("input is correct, go on\n");
             printf("Third symbol is %c\n", pos_ladya2[2]);
             firstflag = 0;if(third_ladya_attack_flag==2)
     {
-        printf("Третья ладья, находящаяся на позиции %s атакуе\n", pos_ladya3);
+        printf("Г’Г°ГҐГІГјГї Г«Г Г¤ГјГї, Г­Г ГµГ®Г¤ГїГ№Г ГїГ±Гї Г­Г  ГЇГ®Г§ГЁГ¶ГЁГЁ %s Г ГІГ ГЄГіГҐ\n", pos_ladya3);
     }
             secondflag = 0;
             rightannotationflag = 0;
@@ -128,7 +128,7 @@ int main()
      while(rightannotationflag!=1)
  {
 
-    printf("Укажите позицию третьей ладьи, используя стандартную запись, например e2\n");
+    printf("Г“ГЄГ Г¦ГЁГІГҐ ГЇГ®Г§ГЁГ¶ГЁГѕ ГІГ°ГҐГІГјГҐГ© Г«Г Г¤ГјГЁ, ГЁГ±ГЇГ®Г«ГјГ§ГіГї Г±ГІГ Г­Г¤Г Г°ГІГ­ГіГѕ Г§Г ГЇГЁГ±Гј, Г­Г ГЇГ°ГЁГ¬ГҐГ° e2\n");
     scanf("%s", pos_ladya3);
 
     flagfunction(pos_ladya3,&firstflag, &secondflag, letter, digit);
@@ -137,12 +137,12 @@ int main()
     {
         if(((pos_king[0]==pos_ladya3[0])&&(pos_king[1]==pos_ladya3[1]))||(((pos_ladya1[0])==pos_ladya3[0])&&(pos_ladya1[1]==pos_ladya3[1]))||(((pos_ladya2[0])==pos_ladya3[0])&&(pos_ladya2[1]==pos_ladya3[1])))
         {
-            printf("На одной и той же клетке не может стоять две фигуры\n");
+            printf("ГЌГ  Г®Г¤Г­Г®Г© ГЁ ГІГ®Г© Г¦ГҐ ГЄГ«ГҐГІГЄГҐ Г­ГҐ Г¬Г®Г¦ГҐГІ Г±ГІГ®ГїГІГј Г¤ГўГҐ ГґГЁГЈГіГ°Г»\n");
             continue;
         }
         else{
             rightannotationflag=1;
-            printf("ввод корректен, продолжаем\n");
+            printf("ГўГўГ®Г¤ ГЄГ®Г°Г°ГҐГЄГІГҐГ­, ГЇГ°Г®Г¤Г®Г«Г¦Г ГҐГ¬\n");
             printf("Third symbol is %c\n", pos_ladya3[2]);
             firstflag = 0;
             secondflag = 0;
@@ -155,13 +155,13 @@ int main()
 }
 
 
-    printf("Позиция черного короля: %s\n", pos_king);
-    printf("Позиция первой ладьи: %s\n", pos_ladya1);
-    printf("Позиция второй ладьи: %s\n", pos_ladya2);
-    printf("Позиция третьей ладьи: %s\n", pos_ladya3);
+    printf("ГЏГ®Г§ГЁГ¶ГЁГї Г·ГҐГ°Г­Г®ГЈГ® ГЄГ®Г°Г®Г«Гї: %s\n", pos_king);
+    printf("ГЏГ®Г§ГЁГ¶ГЁГї ГЇГҐГ°ГўГ®Г© Г«Г Г¤ГјГЁ: %s\n", pos_ladya1);
+    printf("ГЏГ®Г§ГЁГ¶ГЁГї ГўГІГ®Г°Г®Г© Г«Г Г¤ГјГЁ: %s\n", pos_ladya2);
+    printf("ГЏГ®Г§ГЁГ¶ГЁГї ГІГ°ГҐГІГјГҐГ© Г«Г Г¤ГјГЁ: %s\n", pos_ladya3);
 
-    //анализируем и формируем флаги аттак
-    printf("анализ позиции фигур \n");
+    //Г Г­Г Г«ГЁГ§ГЁГ°ГіГҐГ¬ ГЁ ГґГ®Г°Г¬ГЁГ°ГіГҐГ¬ ГґГ«Г ГЈГЁ Г ГІГІГ ГЄ
+    printf("Г Г­Г Г«ГЁГ§ ГЇГ®Г§ГЁГ¶ГЁГЁ ГґГЁГЈГіГ° \n");
 
     if (pos_king[0]==pos_ladya1[0])
         first_ladya_attack_flag=1;
@@ -186,10 +186,10 @@ int main()
 
     if (third_ladya_attack_flag==2&&second_ladya_attack_flag==2&&first_ladya_attack_flag==2)
        {
-           printf("Все три ладьи расположены на одной линии по столбцу цифр и самая близка из них атакует короля\n");
+           printf("Г‚Г±ГҐ ГІГ°ГЁ Г«Г Г¤ГјГЁ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­Г» Г­Г  Г®Г¤Г­Г®Г© Г«ГЁГ­ГЁГЁ ГЇГ® Г±ГІГ®Г«ГЎГ¶Гі Г¶ГЁГґГ° ГЁ Г±Г Г¬Г Гї ГЎГ«ГЁГ§ГЄГ  ГЁГ§ Г­ГЁГµ Г ГІГ ГЄГіГҐГІ ГЄГ®Г°Г®Г«Гї\n");
            if (pos_king[0]<pos_ladya1[0]&&pos_king[0]<pos_ladya2[0]&&pos_king[0]<pos_ladya3[0])
            {
-                printf("Все три атакующие ладьи справа от короля\n");
+                printf("Г‚Г±ГҐ ГІГ°ГЁ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±ГЇГ°Г ГўГ  Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int min = pos_ladya1[0];
                 if (min>pos_ladya2[0])
                    {
@@ -209,7 +209,7 @@ int main()
            }
            else if (pos_king[0]>pos_ladya1[0]&&pos_king[0]>pos_ladya2[0]&&pos_king[0]>pos_ladya3[0])
            {
-                printf("Все три атакующие ладьи слева от короля\n");
+                printf("Г‚Г±ГҐ ГІГ°ГЁ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±Г«ГҐГўГ  Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int max = pos_ladya1[0];
                 if (max<pos_ladya2[0])
                    {
@@ -230,7 +230,7 @@ int main()
 
            else if (pos_king[0]<pos_ladya1[0]&&pos_king[0]<pos_ladya2[0]&&pos_king[0]>pos_ladya3[0])
            {
-                printf("две атакующие ладьи справа от короля\n");
+                printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±ГЇГ°Г ГўГ  Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int min = pos_ladya1[0];
                 if (min>pos_ladya2[0])
                    {
@@ -243,7 +243,7 @@ int main()
 
            else if (pos_king[0]<pos_ladya1[0]&&pos_king[0]<pos_ladya3[0]&&pos_king[0]>pos_ladya2[0])
            {
-                printf("две атакующие ладьи справа от короля\n");
+                printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±ГЇГ°Г ГўГ  Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int min = pos_ladya1[0];
                 if (min>pos_ladya3[0])
                    {
@@ -255,7 +255,7 @@ int main()
            }
            else if (pos_king[0]<pos_ladya2[0]&&pos_king[0]<pos_ladya3[0]&&pos_king[0]>pos_ladya1[0])
            {
-                printf("две атакующие ладьи справа от короля\n");
+                printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±ГЇГ°Г ГўГ  Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int min = pos_ladya2[0];
                 if (min>pos_ladya3[0])
                    {
@@ -268,7 +268,7 @@ int main()
 
            else if (pos_king[0]>pos_ladya1[0]&&pos_king[0]>pos_ladya2[0]&&pos_king[0]<pos_ladya3[0])
            {
-                printf("две атакующие ладьи слева от короля\n");
+                printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±Г«ГҐГўГ  Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int max = pos_ladya1[0];
                 if (max<pos_ladya2[0])
                    {
@@ -281,7 +281,7 @@ int main()
 
            else if (pos_king[0]>pos_ladya1[0]&&pos_king[0]>pos_ladya3[0]&&pos_king[0]<pos_ladya2[0])
            {
-                printf("две атакующие ладьи слева от короля\n");
+                printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±Г«ГҐГўГ  Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int max = pos_ladya1[0];
                 if (max<pos_ladya3[0])
                    {
@@ -293,7 +293,7 @@ int main()
            }
            else if (pos_king[0]>pos_ladya2[0]&&pos_king[0]>pos_ladya3[0]&&pos_king[0]<pos_ladya1[0])
            {
-                printf("две атакующие ладьи слева от короля\n");
+                printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±Г«ГҐГўГ  Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int max = pos_ladya2[0];
                 if (max>pos_ladya3[0])
                    {
@@ -307,10 +307,10 @@ int main()
 
     else if (first_ladya_attack_flag==2&&second_ladya_attack_flag==2)
        {
-        printf("Две ладьи расположены на одной линии по столбцу цифр и самая близка из них атакует короля\n");
+        printf("Г„ГўГҐ Г«Г Г¤ГјГЁ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­Г» Г­Г  Г®Г¤Г­Г®Г© Г«ГЁГ­ГЁГЁ ГЇГ® Г±ГІГ®Г«ГЎГ¶Гі Г¶ГЁГґГ° ГЁ Г±Г Г¬Г Гї ГЎГ«ГЁГ§ГЄГ  ГЁГ§ Г­ГЁГµ Г ГІГ ГЄГіГҐГІ ГЄГ®Г°Г®Г«Гї\n");
            if (pos_king[0]<pos_ladya1[0]&&pos_king[0]<pos_ladya2[0])
            {
-                printf("Обе атакующие ладьи справа от короля\n");
+                printf("ГЋГЎГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±ГЇГ°Г ГўГ  Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int min = pos_ladya1[0];
                 if (min>pos_ladya2[0])
                    {
@@ -325,7 +325,7 @@ int main()
 
            else if (pos_king[0]>pos_ladya1[0]&&pos_king[0]>pos_ladya2[0])
            {
-                printf("Обе атакующие ладьи слева от короля\n");
+                printf("ГЋГЎГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±Г«ГҐГўГ  Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int max = pos_ladya1[0];
                 if (max<pos_ladya2[0])
                    {
@@ -337,15 +337,15 @@ int main()
 
            }
            else
-            printf("две атакующие ладьи расположены по обе стороны от короля\n");
+            printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­Г» ГЇГ® Г®ГЎГҐ Г±ГІГ®Г°Г®Г­Г» Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
        }
 
        else if (first_ladya_attack_flag==2&&third_ladya_attack_flag==2)
        {
-        printf("Две ладьи расположены на одной линии по столбцу цифр и самая близка из них атакует короля\n");
+        printf("Г„ГўГҐ Г«Г Г¤ГјГЁ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­Г» Г­Г  Г®Г¤Г­Г®Г© Г«ГЁГ­ГЁГЁ ГЇГ® Г±ГІГ®Г«ГЎГ¶Гі Г¶ГЁГґГ° ГЁ Г±Г Г¬Г Гї ГЎГ«ГЁГ§ГЄГ  ГЁГ§ Г­ГЁГµ Г ГІГ ГЄГіГҐГІ ГЄГ®Г°Г®Г«Гї\n");
            if (pos_king[0]<pos_ladya1[0]&&pos_king[0]<pos_ladya3[0])
            {
-                printf("Обе атакующие ладьи справа от короля\n");
+                printf("ГЋГЎГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±ГЇГ°Г ГўГ  Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int min = pos_ladya1[0];
                 if (min>pos_ladya3[0])
                    {
@@ -360,7 +360,7 @@ int main()
 
            else if (pos_king[0]>pos_ladya1[0]&&pos_king[0]>pos_ladya3[0])
            {
-                printf("Обе атакующие ладьи слева от короля\n");
+                printf("ГЋГЎГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±Г«ГҐГўГ  Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int max = pos_ladya1[0];
                 if (max<pos_ladya3[0])
                    {
@@ -372,15 +372,15 @@ int main()
 
            }
            else
-            printf("две атакующие ладьи расположены по обе стороны от короля\n");
+            printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­Г» ГЇГ® Г®ГЎГҐ Г±ГІГ®Г°Г®Г­Г» Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
        }
 
        else if (second_ladya_attack_flag==2&&third_ladya_attack_flag==2)
        {
-        printf("Две ладьи расположены на одной линии по столбцу цифр и самая близка из них атакует короля\n");
+        printf("Г„ГўГҐ Г«Г Г¤ГјГЁ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­Г» Г­Г  Г®Г¤Г­Г®Г© Г«ГЁГ­ГЁГЁ ГЇГ® Г±ГІГ®Г«ГЎГ¶Гі Г¶ГЁГґГ° ГЁ Г±Г Г¬Г Гї ГЎГ«ГЁГ§ГЄГ  ГЁГ§ Г­ГЁГµ Г ГІГ ГЄГіГҐГІ ГЄГ®Г°Г®Г«Гї\n");
            if (pos_king[0]<pos_ladya2[0]&&pos_king[0]<pos_ladya3[0])
            {
-                printf("Обе атакующие ладьи справа от короля\n");
+                printf("ГЋГЎГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±ГЇГ°Г ГўГ  Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int min = pos_ladya2[0];
                 if (min>pos_ladya3[0])
                    {
@@ -395,7 +395,7 @@ int main()
 
            else if (pos_king[0]>pos_ladya2[0]&&pos_king[0]>pos_ladya3[0])
            {
-                printf("Обе атакующие ладьи слева от короля\n");
+                printf("ГЋГЎГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±Г«ГҐГўГ  Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int max = pos_ladya2[0];
                 if (max<pos_ladya3[0])
                    {
@@ -407,15 +407,15 @@ int main()
 
            }
            else
-            printf("две атакующие ладьи расположены по обе стороны от короля\n");
+            printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­Г» ГЇГ® Г®ГЎГҐ Г±ГІГ®Г°Г®Г­Г» Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
        }
 
       if (third_ladya_attack_flag==1&&second_ladya_attack_flag==1&&first_ladya_attack_flag==1)
        {
-           printf("Все три ладьи расположены на одной линии по столбцу цифр и самая близка из них атакует короля\n");
+           printf("Г‚Г±ГҐ ГІГ°ГЁ Г«Г Г¤ГјГЁ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­Г» Г­Г  Г®Г¤Г­Г®Г© Г«ГЁГ­ГЁГЁ ГЇГ® Г±ГІГ®Г«ГЎГ¶Гі Г¶ГЁГґГ° ГЁ Г±Г Г¬Г Гї ГЎГ«ГЁГ§ГЄГ  ГЁГ§ Г­ГЁГµ Г ГІГ ГЄГіГҐГІ ГЄГ®Г°Г®Г«Гї\n");
            if (pos_king[1]>pos_ladya1[1]&&pos_king[1]>pos_ladya2[1]&&pos_king[1]>pos_ladya3[1])
            {
-                printf("Все три атакующие ладьи сверху от короля\n");
+                printf("Г‚Г±ГҐ ГІГ°ГЁ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±ГўГҐГ°ГµГі Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int max = pos_ladya1[1];
                 if (max<pos_ladya2[1])
                    {
@@ -436,7 +436,7 @@ int main()
            }
            else if (pos_king[1]<pos_ladya1[1]&&pos_king[1]<pos_ladya2[1]&&pos_king[1]<pos_ladya3[1])
            {
-                printf("Все три атакующие ладьи снизу от короля\n");
+                printf("Г‚Г±ГҐ ГІГ°ГЁ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±Г­ГЁГ§Гі Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int min = pos_ladya1[1];
                 if (min>pos_ladya2[1])
                    {
@@ -455,10 +455,10 @@ int main()
                     third_ladya_attack_flag=0;
                     //ok
            }
-// дальше перепроверить
+// Г¤Г Г«ГјГёГҐ ГЇГҐГ°ГҐГЇГ°Г®ГўГҐГ°ГЁГІГј
            else if (pos_king[1]>pos_ladya1[1]&&pos_king[1]>pos_ladya2[1]&&pos_king[1]<pos_ladya3[1])
            {
-                printf("две атакующие ладьи сверху от короля\n");
+                printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±ГўГҐГ°ГµГі Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int max = pos_ladya1[1];
                 if (max<pos_ladya2[1])
                    {
@@ -471,7 +471,7 @@ int main()
 
            else if (pos_king[1]>pos_ladya1[1]&&pos_king[1]>pos_ladya3[1]&&pos_king[1]<pos_ladya2[1])
            {
-                printf("две атакующие ладьи справа от короля\n");
+                printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±ГЇГ°Г ГўГ  Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
 
 
                 int max = pos_ladya1[1];
@@ -485,7 +485,7 @@ int main()
            }
            else if (pos_king[1]>pos_ladya2[1]&&pos_king[1]>pos_ladya3[1]&&pos_king[1]<pos_ladya1[1])
            {
-                printf("две атакующие ладьи сверху от короля\n");
+                printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±ГўГҐГ°ГµГі Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int max = pos_ladya2[1];
                 if (max<pos_ladya3[1])
                    {
@@ -498,7 +498,7 @@ int main()
 
            else if (pos_king[1]<pos_ladya1[1]&&pos_king[1]<pos_ladya2[1]&&pos_king[1]>pos_ladya3[1])
            {
-                printf("две атакующие ладьи сверху от короля\n");
+                printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±ГўГҐГ°ГµГі Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int min = pos_ladya1[1];
                 if (min>pos_ladya2[1])
                    {
@@ -511,7 +511,7 @@ int main()
 
            else if (pos_king[1]<pos_ladya1[1]&&pos_king[1]<pos_ladya3[1]&&pos_king[1]>pos_ladya2[1])
            {
-                printf("две атакующие ладьи снизу от короля\n");
+                printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±Г­ГЁГ§Гі Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int min = pos_ladya1[1];
                 if (min>pos_ladya3[1])
                    {
@@ -523,7 +523,7 @@ int main()
            }
            else if (pos_king[1]<pos_ladya2[1]&&pos_king[1]<pos_ladya3[1]&&pos_king[1]>pos_ladya1[1])
            {
-                printf("две атакующие ладьи снизу от короля\n");
+                printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±Г­ГЁГ§Гі Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int min = pos_ladya2[1];
                 if (min>pos_ladya3[1])
                    {
@@ -538,10 +538,10 @@ int main()
 
        else if (first_ladya_attack_flag==1&&second_ladya_attack_flag==1)
        {
-        printf("Две ладьи расположены на одной линии по столбцу букв и самая близка из них атакует короля\n");
+        printf("Г„ГўГҐ Г«Г Г¤ГјГЁ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­Г» Г­Г  Г®Г¤Г­Г®Г© Г«ГЁГ­ГЁГЁ ГЇГ® Г±ГІГ®Г«ГЎГ¶Гі ГЎГіГЄГў ГЁ Г±Г Г¬Г Гї ГЎГ«ГЁГ§ГЄГ  ГЁГ§ Г­ГЁГµ Г ГІГ ГЄГіГҐГІ ГЄГ®Г°Г®Г«Гї\n");
            if (pos_king[1]>pos_ladya1[1]&&pos_king[1]>pos_ladya2[1])
            {
-                printf("Обе атакующие ладьи сверху от короля\n");
+                printf("ГЋГЎГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±ГўГҐГ°ГµГі Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int max = pos_ladya1[1];
                 if (max<pos_ladya2[1])
                    {
@@ -556,7 +556,7 @@ int main()
 
            else if (pos_king[1]<pos_ladya1[1]&&pos_king[1]<pos_ladya2[1])
            {
-                printf("Обе атакующие ладьи снизу от короля\n");
+                printf("ГЋГЎГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±Г­ГЁГ§Гі Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int min = pos_ladya1[1];
                 if (min>pos_ladya2[1])
                    {
@@ -568,15 +568,15 @@ int main()
 
            }
            else
-            printf("две атакующие ладьи расположены по обе стороны от короля\n");
+            printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­Г» ГЇГ® Г®ГЎГҐ Г±ГІГ®Г°Г®Г­Г» Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
        }
 
        else if (first_ladya_attack_flag==1&&third_ladya_attack_flag==1)
        {
-        printf("Две ладьи расположены на одной линии по столбцу букв и самая близка из них атакует короля\n");
+        printf("Г„ГўГҐ Г«Г Г¤ГјГЁ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­Г» Г­Г  Г®Г¤Г­Г®Г© Г«ГЁГ­ГЁГЁ ГЇГ® Г±ГІГ®Г«ГЎГ¶Гі ГЎГіГЄГў ГЁ Г±Г Г¬Г Гї ГЎГ«ГЁГ§ГЄГ  ГЁГ§ Г­ГЁГµ Г ГІГ ГЄГіГҐГІ ГЄГ®Г°Г®Г«Гї\n");
            if (pos_king[1]>pos_ladya1[1]&&pos_king[1]>pos_ladya3[1])
            {
-                printf("Обе атакующие ладьи сверху от короля\n");
+                printf("ГЋГЎГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±ГўГҐГ°ГµГі Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int max = pos_ladya1[1];
                 if (max<pos_ladya3[1])
                    {
@@ -591,7 +591,7 @@ int main()
 
            else if (pos_king[1]<pos_ladya1[1]&&pos_king[1]<pos_ladya3[1])
            {
-                printf("Обе атакующие ладьи снизу от короля\n");
+                printf("ГЋГЎГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±Г­ГЁГ§Гі Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int min = pos_ladya1[1];
                 if (min<pos_ladya3[1])
                    {
@@ -602,15 +602,15 @@ int main()
                     third_ladya_attack_flag=0;
            }
            else
-            printf("две атакующие ладьи расположены по обе стороны от короля\n");
+            printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­Г» ГЇГ® Г®ГЎГҐ Г±ГІГ®Г°Г®Г­Г» Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
        }
 
        else if (second_ladya_attack_flag==1&&third_ladya_attack_flag==1)
        {
-        printf("Две ладьи расположены на одной линии по столбцу букв и самая близка из них атакует короля\n");
+        printf("Г„ГўГҐ Г«Г Г¤ГјГЁ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­Г» Г­Г  Г®Г¤Г­Г®Г© Г«ГЁГ­ГЁГЁ ГЇГ® Г±ГІГ®Г«ГЎГ¶Гі ГЎГіГЄГў ГЁ Г±Г Г¬Г Гї ГЎГ«ГЁГ§ГЄГ  ГЁГ§ Г­ГЁГµ Г ГІГ ГЄГіГҐГІ ГЄГ®Г°Г®Г«Гї\n");
            if (pos_king[1]>pos_ladya2[1]&&pos_king[1]>pos_ladya3[1])
            {
-                printf("Обе атакующие ладьи сверху от короля\n");
+                printf("ГЋГЎГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±ГўГҐГ°ГµГі Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int max = pos_ladya2[1];
                 if (max<pos_ladya3[1])
                    {
@@ -625,7 +625,7 @@ int main()
 
            else if (pos_king[1]>pos_ladya2[1]&&pos_king[1]>pos_ladya3[1])
            {
-                printf("Обе атакующие ладьи снизу от короля\n");
+                printf("ГЋГЎГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г±Г­ГЁГ§Гі Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
                 int min = pos_ladya2[1];
                 if (min<pos_ladya3[1])
                    {
@@ -637,7 +637,7 @@ int main()
 
            }
            else
-            printf("две атакующие ладьи расположены по обе стороны от короля\n");
+            printf("Г¤ГўГҐ Г ГІГ ГЄГіГѕГ№ГЁГҐ Г«Г Г¤ГјГЁ Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­Г» ГЇГ® Г®ГЎГҐ Г±ГІГ®Г°Г®Г­Г» Г®ГІ ГЄГ®Г°Г®Г«Гї\n");
        }
 
 
@@ -645,27 +645,27 @@ int main()
 
     if(first_ladya_attack_flag==2)
     {
-        printf("Первая ладья, находящаяся на позиции %s атакуе по горизонтали\n", pos_ladya1);
+        printf("ГЏГҐГ°ГўГ Гї Г«Г Г¤ГјГї, Г­Г ГµГ®Г¤ГїГ№Г ГїГ±Гї Г­Г  ГЇГ®Г§ГЁГ¶ГЁГЁ %s Г ГІГ ГЄГіГҐ ГЇГ® ГЈГ®Г°ГЁГ§Г®Г­ГІГ Г«ГЁ\n", pos_ladya1);
     }
     else if(first_ladya_attack_flag==1)
     {
-        printf("Первая ладья, находящаяся на позиции %s атакуе по вертикали\n", pos_ladya1);
+        printf("ГЏГҐГ°ГўГ Гї Г«Г Г¤ГјГї, Г­Г ГµГ®Г¤ГїГ№Г ГїГ±Гї Г­Г  ГЇГ®Г§ГЁГ¶ГЁГЁ %s Г ГІГ ГЄГіГҐ ГЇГ® ГўГҐГ°ГІГЁГЄГ Г«ГЁ\n", pos_ladya1);
     }
     if(second_ladya_attack_flag==2)
     {
-        printf("Вторая ладья, находящаяся на позиции %s атакуе по горизонтали\n", pos_ladya2);
+        printf("Г‚ГІГ®Г°Г Гї Г«Г Г¤ГјГї, Г­Г ГµГ®Г¤ГїГ№Г ГїГ±Гї Г­Г  ГЇГ®Г§ГЁГ¶ГЁГЁ %s Г ГІГ ГЄГіГҐ ГЇГ® ГЈГ®Г°ГЁГ§Г®Г­ГІГ Г«ГЁ\n", pos_ladya2);
     }
     else if(second_ladya_attack_flag==1)
     {
-        printf("Вторая ладья, находящаяся на позиции %s атакуе по вертикали\n", pos_ladya2);
+        printf("Г‚ГІГ®Г°Г Гї Г«Г Г¤ГјГї, Г­Г ГµГ®Г¤ГїГ№Г ГїГ±Гї Г­Г  ГЇГ®Г§ГЁГ¶ГЁГЁ %s Г ГІГ ГЄГіГҐ ГЇГ® ГўГҐГ°ГІГЁГЄГ Г«ГЁ\n", pos_ladya2);
     }
     if(third_ladya_attack_flag==2)
     {
-        printf("Третья ладья, находящаяся на позиции %s атакуе по горизонтали\n", pos_ladya3);
+        printf("Г’Г°ГҐГІГјГї Г«Г Г¤ГјГї, Г­Г ГµГ®Г¤ГїГ№Г ГїГ±Гї Г­Г  ГЇГ®Г§ГЁГ¶ГЁГЁ %s Г ГІГ ГЄГіГҐ ГЇГ® ГЈГ®Г°ГЁГ§Г®Г­ГІГ Г«ГЁ\n", pos_ladya3);
     }
     else if(third_ladya_attack_flag==1)
     {
-        printf("Третья ладья, находящаяся на позиции %s атакуе по вертикали\n", pos_ladya3);
+        printf("Г’Г°ГҐГІГјГї Г«Г Г¤ГјГї, Г­Г ГµГ®Г¤ГїГ№Г ГїГ±Гї Г­Г  ГЇГ®Г§ГЁГ¶ГЁГЁ %s Г ГІГ ГЄГіГҐ ГЇГ® ГўГҐГ°ГІГЁГЄГ Г«ГЁ\n", pos_ladya3);
     }
 
 
